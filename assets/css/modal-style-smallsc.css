@@ -1,0 +1,315 @@
+@media (max-width: 768px) {
+
+    .adresy-open-modal .adresy-modal-ingress-block {
+        flex-direction: row;
+        align-items: center;
+        gap: 3px;
+    }
+
+    .adresy-open-modal .adresy-line-2 {
+        line-height: unset !important;
+    }
+
+    .mode-mobile-dark .adresy-line-1,
+    .mode-mobile-dark .adresy-line-2 {
+        color: #333333 !important;
+    }
+
+    .mode-mobile-dark .adresy-modal-ingress-icon path {
+        fill: #000000 !important;
+    }
+    .mode-mobile-dark path {
+        stroke: #000000 !important;
+    }
+
+    .mode-mobile-light .adresy-modal-ingress-icon path {
+        fill: #ffffff !important;
+    }
+
+    .mode-mobile-light path {
+        stroke: #ffffff !important;
+    }
+
+    .mode-mobile-light .adresy-line-1,
+    .mode-mobile-light .adresy-line-2 {
+        color: #fff !important;
+    }
+
+    .adresy-modal-mobile .adresy-modal-after .adresy-shipping-address {
+        padding: 8px !important;
+        font-size: 14px !important;
+        width: 140px;
+        height: 130px;
+        overflow: hidden;
+        border: solid 1px var(--color-border);
+        line-height: 1.3;
+    }
+
+    .adresy-modal-mobile .adresy-modal-after .adresy-shipping-address.active {
+        border: solid 1px var(--color-btn-border);
+    }
+    .adresy-modal-after .adresy-shipping-address strong {
+        color: black;
+        font-size: 16px;
+    }
+
+    .adresy-mab {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .adresy-modal-after .adresy-edit-link,
+    .adresy-modal-after .adresy-shipping-address-dect {
+        border: solid 1px var(--color-border);
+        border-radius: 7px;
+        padding: 8px;
+        width: 140px;
+        height: 130px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .adresy-modal-after .adresy-edit-link a {
+        color: var(--color-link) !important;
+    }
+    .adresy-line-2 {
+        font-weight: unset!important;
+        display: inline-flex!important;
+        font-size: 12px!important;
+    }
+    .mobile-only .adresy-open-modal {
+        gap: 5px!important;
+    }
+    
+
+}
+.adresy-modal-middle-submit-mobile {
+  all: unset;
+  display: inline-block !important;
+  padding: 0 !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  vertical-align: middle !important;
+  cursor: pointer !important;
+  border-radius: 50px !important;
+  width: 100%;
+  height: 30px;
+  align-content: center;
+  font-family: var(--font-main) !important;
+  font-size: 13px !important;
+  text-transform: capitalize !important;
+  min-height: 0 !important;
+  font-weight: 400 !important;
+}
+
+.adresy-modal-mobile {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.adresy-modal-mobile.active {
+    visibility: visible;
+}
+
+.adresy-modal-city-mobile,
+.adresy-modal-country-mobile {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: white;
+    width: 375px;
+    max-width: none;
+    border-radius: 8px 8px 0 0;
+    z-index: 1001;
+    overflow: hidden;
+    height: 400px;
+    visibility: hidden;
+    display: none;
+}
+
+.adresy-modal-content-mobile {
+    position: absolute;
+    visibility: hidden;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    background: white;
+    width: 375px;
+    max-width: none;
+    border-radius: 8px 8px 0 0;
+    z-index: 1001;
+    overflow: hidden;
+    height: 400px;
+    transition: all 0.3s ease;
+}
+
+.adresy-modal-content-mobile.active {
+    visibility: visible;
+    transform: translate(-50%, 0);
+
+}
+
+.adresy-close-modal-mobile,
+.adresy-close-modal-mobile-city,
+.adresy-close-modal-mobile-country {
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    right: 15px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 900;
+
+}
+
+.adresy-modal-backdrop-mobile {
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.adresy-modal-backdrop-mobile.active {
+    opacity: 1;
+}
+
+.adresy-modal-header-mobile,
+.adresy-modal-header-mobile-city,
+.adresy-modal-header-mobile-country {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.6rem 1.2rem;
+    flex-direction: row;
+    position: relative;
+    height: 55px;
+
+}
+
+.adresy-modal-header-mobile-city,
+.adresy-modal-header-mobile-country {
+    border-bottom: 1px solid #d5d9d9;
+}
+
+.adresy-modal-top-body-mobile h4 {
+    margin: 0;
+    font-family: var(--font-main);
+    font-size: 16px;
+}
+
+.adresy-modal-top-body-mobile p {
+    margin: 0;
+}
+
+.adresy-modal-content-mobile,
+.adresy-modal-content-mobile h4 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.adresy-actions-icon-mobile-loc1 {
+    stroke: var(--color-link);
+    stroke-width: 0.5;
+    fill: var(--color-link);
+    
+}
+.adresy-select-country-mobile path {
+    stroke: var(--color-link);
+}
+
+.adresy-select-current-loc-mobile svg {
+fill: var(--color-link);
+   }
+   .adresy-select-current-loc-mobile circle {
+    stroke: var(--color-link);
+   }
+
+.adresy-actions-icon-mobile-loc2 {
+
+    fill: #fff;
+    stroke: #fff;
+    stroke-width: 4.5;
+
+}
+
+.adresy-select-city-mobile,
+.adresy-select-country-mobile,
+.adresy-select-current-loc-mobile {
+    display: inline-flex;
+    gap: 5px;
+    color: var(--color-link);
+}
+
+.adresy-modal-city-middle {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1.2rem 1.6rem 1.2rem;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+}
+
+.adresy-select-country-mobile svg,
+.adresy-select-city-mobile svg,
+.adresy-select-current-loc-mobile svg{
+    width: 20px;
+    height: 20px;
+}
+
+.adresy-modal-body-mobile{
+padding: 0rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.adresy-modal-middle-actions-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+
+.adresy-modal-bottom-select-country-list {
+    list-style: none!important;
+    border: 1px solid #dbdbdb;
+    border-radius: 12px;
+    margin: .5rem;
+    padding: 0!important;
+}
+
+.adresy-modal-bottom-select-country-list li:not(:last-child) {
+
+    border-bottom: solid 1px #dbdbdb;
+}
+.adresy-modal-bottom-select-country-list li{
+    margin: 0;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+
+}
+.adresy-modal-bottom-select-country-list label {
+
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.adresy-modal-bottom-select-country-list input {
+    width: 20px;
+    height: 20px;
+}
