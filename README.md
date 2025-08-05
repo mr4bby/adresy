@@ -80,8 +80,8 @@ Once installed and configured, Adresy will display a modal address selector on y
 
 For detailed documentation, troubleshooting, and support, please visit:
 
-- [Adresy Documentation](https://adresy.com/docs)
-- [Adresy Support](https://adresy.com/support)
+- [Adresy Documentation](https://adresy.net/docs)
+- [Adresy Support](https://adresy.net/support)
 
 ## License & Copyright
 
@@ -91,4 +91,4 @@ All code, images, and assets included in this plugin are the intellectual proper
 
 Adresy and its logo are trademarks of the Adresy Team. All other trademarks are the property of their respective owners.
 
-For commercial licensing, partnership inquiries, or questions regarding copyright, please contact us via our [support page](https://adresy.com/support)
+For commercial licensing, partnership inquiries, or questions regarding copyright, please contact us via our [support page](https://adresy.net/support)

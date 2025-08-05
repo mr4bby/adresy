@@ -17,9 +17,9 @@ class SettingsPage
                 </div>
             </div>
             <div class="adresy-info-links">
-                <a href="https://adresy.com">Adresy</a>
-                <a href="https://adresy.com/docs">Documentation</a>
-                <a href="https://adresy.com/support">Support</a>
+                <a href="https://adresy.net">Adresy</a>
+                <a href="https://adresy.net/docs">Documentation</a>
+                <a href="https://adresy.net/support">Support</a>
             </div>
         </div>
 
@@ -119,8 +119,8 @@ class SettingsPage
                 <div class="adresy-middle-box-right bg padding-24">
                     <h2>Plugin Settings</h2>
                     <p>Here you can change the plugin settings.</p>
-                    <p>For more information, please refer to the <a href="https://adresy.com/docs" target="_blank">documentation</a>.</p>
-                    <p>If you have any questions or need support, please visit our <a href="https://adresy.com/support" target="_blank">support page</a>.</p>
+                    <p>For more information, please refer to the <a href="https://adresy.net/docs" target="_blank">documentation</a>.</p>
+                    <p>If you have any questions or need support, please visit our <a href="https://adresy.net/support" target="_blank">support page</a>.</p>
                 </div>
             </div>
         </div>
