@@ -81,4 +81,14 @@ Once installed and configured, Adresy will display a modal address selector on y
 For detailed documentation, troubleshooting, and support, please visit:
 
 - [Adresy Documentation](https://adresy.com/docs)
--
+- [Adresy Support](https://adresy.com/support)
+
+## License & Copyright
+
+Adresy is distributed under the GNU General Public License v2.0 or later. This means you are free to use, modify, and distribute this plugin, provided that any derivative works are also licensed under the GPL. For full license details, see [GPL v2.0](https://www.gnu.org/licenses/gpl-2.0.html).
+
+All code, images, and assets included in this plugin are the intellectual property of the Adresy development team unless otherwise stated. Unauthorized copying, reproduction, or redistribution of any part of this plugin outside the terms of the GPL license is strictly prohibited.
+
+Adresy and its logo are trademarks of the Adresy Team. All other trademarks are the property of their respective owners.
+
+For commercial licensing, partnership inquiries, or questions regarding copyright, please contact us via our [support page](https://adresy.com/support)
