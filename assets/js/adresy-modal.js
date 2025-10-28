@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
                 .then(res => res.json())
                 .then(data => {
-                    if (data.success) {
+                        if (data.success) {
                         if (line2) {
                             if (line1_p) {
                                 line1_p.textContent = '';
@@ -60,8 +60,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                 jQuery(selectCountry).val('').trigger('change');
                             }
                             line2.textContent = '';
-                            line2.textContent = data.data;
-
+                            if (data.data && data.data.label) {
+                                line2.textContent = data.data.label + ' ' + (data.data.icon || '');
+                            }
                         }
                         desktop_modal.classList.remove('active');
                     } else {
@@ -113,12 +114,14 @@ document.addEventListener('DOMContentLoaded', function () {
                                     $(selectstate).val('').trigger('change');
                                 }
                                 line2.textContent = '';
-                                line2.textContent = data.data;
+                                if (data.data && data.data.label) {
+                                    line2.textContent = data.data.label + ' ' + (data.data.icon || '');
+                                }
 
                             }
                             desktop_modal.classList.remove('active');
                         } else {
-                            alert('error: ' + data.data);
+                            alert('error: ' + (data.data && data.data.message ? data.data.message : data.data));
                         }
                     });
 
