@@ -3,12 +3,16 @@ class Adresy_Ajax
 {
     public static function init()
     {
+        // Register AJAX handlers only if WP_Ajax is usable. Also namespace handlers to avoid collisions.
         add_action('wp_ajax_adresy_save_state_location', [__CLASS__, 'save_state_location']);
         add_action('wp_ajax_nopriv_adresy_save_state_location', [__CLASS__, 'save_state_location']);
+
         add_action('wp_ajax_adresy_save_country_location', [__CLASS__, 'save_country_location']);
         add_action('wp_ajax_nopriv_adresy_save_country_location', [__CLASS__, 'save_country_location']);
+
         add_action('wp_ajax_adresy_save_shipping_location', [__CLASS__, 'save_shipping_location']);
         add_action('wp_ajax_nopriv_adresy_save_shipping_location', [__CLASS__, 'save_shipping_location']);
+
         add_action('wp_ajax_adresy_find_address', [__CLASS__, 'find_address']);
         add_action('wp_ajax_nopriv_adresy_find_address', [__CLASS__, 'find_address']);
     }

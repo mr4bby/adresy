@@ -71,7 +71,11 @@ final class Adresy_Plugin
         add_action('plugins_loaded', [$this, 'load_textdomain']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
         add_action('before_woocommerce_init', [$this, 'declare_wc_compatibility']);
-        add_action('wp_footer', ['Adresy_Modal', 'render_modal']);
+
+        // Only add WC-dependent rendering if WooCommerce is active
+        if ( class_exists( 'WooCommerce' ) ) {
+            add_action('wp_footer', ['Adresy_Modal', 'render_modal']);
+        }
         add_action('admin_menu', [$this, 'add_admin_menu']);
         add_action('admin_enqueue_scripts', [$this, 'enqueue_adresy_admin_assets']);
 

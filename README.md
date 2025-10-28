@@ -92,3 +92,18 @@ All code, images, and assets included in this plugin are the intellectual proper
 Adresy and its logo are trademarks of the Adresy Team. All other trademarks are the property of their respective owners.
 
 For commercial licensing, partnership inquiries, or questions regarding copyright, please contact us via our [support page](https://adresy.net/support)
+
+## PR: adresy-pr (QA checklist)
+
+This PR contains security and performance hardening: conditional asset loading, structured AJAX responses, and WooCommerce runtime guards.
+
+Checklist for reviewers before merging:
+
+- **Functional QA**: Verify modal opens on pages containing `[adresy_location_trigger_desktop]` or `[adresy_location_trigger_mobile]` and not on other pages.
+- **Security QA**: Test AJAX endpoints for proper nonce validation and that responses do not inject raw HTML. Check `find_address` returns JSON fields `country`, `state`, `icon`.
+- **Compatibility QA**: Test with WooCommerce active and deactivated — admin notice should appear when WC is missing and no fatal errors should occur.
+- **Performance QA**: Check that assets are not enqueued on unrelated pages.
+- **i18n QA**: Spot-check strings to ensure translations are applied.
+- **Regression QA**: Smoke-test mobile and desktop flows for selecting state/country and applying shipping address.
+
+Merge strategy: Squash and merge after approvals. Create a release tag after merging.
