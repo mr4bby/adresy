@@ -107,3 +107,16 @@ Checklist for reviewers before merging:
 - **Regression QA**: Smoke-test mobile and desktop flows for selecting state/country and applying shipping address.
 
 Merge strategy: Squash and merge after approvals. Create a release tag after merging.
+
+## Namespacing & Autoload Plan (short)
+
+Goal: Move classes under `Adresy\` namespace and add Composer autoload with PSR-4.
+
+Steps:
+
+- Create `composer.json` with autoload PSR-4 mapping: `"Adresy\\": "includes/"`.
+- Refactor files to use namespaces and update `adresy.php` to include `vendor/autoload.php` when present.
+- Replace static-heavy code with instantiable classes and dependency injection where appropriate.
+- Add a migration/compat layer for legacy class names (class aliases) to preserve backward compatibility.
+
+I can start the refactor in a feature branch after we stabilize tests and CI.
