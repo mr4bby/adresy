@@ -61,6 +61,13 @@ final class Adresy_Plugin
 
     private function hooks()
     {
+        // Guard: if WooCommerce is required but not active, show admin notice and avoid WC-dependent hooks
+        add_action('admin_notices', function () {
+            if ( ! class_exists('WooCommerce') ) {
+                echo '<div class="notice notice-warning is-dismissible"><p>' . esc_html__('Adresy: WooCommerce is not active. Some features are disabled.', 'adresy') . '</p></div>';
+            }
+        });
+
         add_action('plugins_loaded', [$this, 'load_textdomain']);
         add_action('wp_enqueue_scripts', [$this, 'enqueue_assets']);
         add_action('before_woocommerce_init', [$this, 'declare_wc_compatibility']);
@@ -78,18 +85,41 @@ final class Adresy_Plugin
 
     public function enqueue_assets()
     {
+        // Only enqueue assets when the current post contains our shortcodes to avoid loading on all pages
+        global $post;
+
+        $has_desktop_shortcode = false;
+        $has_mobile_shortcode = false;
+
+        if ( isset( $post ) && is_singular() ) {
+            $content = $post->post_content;
+            if ( has_shortcode( $content, 'adresy_location_trigger_desktop' ) ) {
+                $has_desktop_shortcode = true;
+            }
+            if ( has_shortcode( $content, 'adresy_location_trigger_mobile' ) ) {
+                $has_mobile_shortcode = true;
+            }
+        }
+
+        // If neither shortcode exists on this page, skip enqueueing assets
+        if ( ! $has_desktop_shortcode && ! $has_mobile_shortcode ) {
+            return;
+        }
+
         wp_enqueue_style('adresy-style-mob', ADRESY_URL . 'assets/css/modal-style-smallsc.css', [], ADRESY_VERSION);
         wp_enqueue_style('adresy-style', ADRESY_URL . 'assets/css/modal-style.css', [], ADRESY_VERSION);
         wp_enqueue_style('adresy-select2-css', ADRESY_URL . 'assets/css/select2.min.css', [], ADRESY_VERSION);
 
         wp_enqueue_script('adresy-select2-js', ADRESY_URL . 'assets/js/select2.min.js', ['jquery'], ADRESY_VERSION, true);
         wp_enqueue_script('adresy-select2-js-select', ADRESY_URL . 'assets/js/select.js', ['jquery'], ADRESY_VERSION);
-        wp_enqueue_script('adresy-modal', ADRESY_URL . 'assets/js/adresy-modal.js', ['jquery'], ADRESY_VERSION);
-        wp_enqueue_script('adresy-modal_mobile', ADRESY_URL . 'assets/js/adresy-modal-mobile.js', ['jquery'], ADRESY_VERSION);
-
-
-        wp_localize_script('adresy-modal', 'adresy_ajax', ['ajax_url' => admin_url('admin-ajax.php'), 'nonce'    => wp_create_nonce('adresy_nonce'),]);
-        wp_localize_script('adresy-modal_mobile', 'adresy_ajax_mob', ['ajax_url' => admin_url('admin-ajax.php'), 'nonce'    => wp_create_nonce('adresy_nonce'),]);
+        if ( $has_desktop_shortcode ) {
+            wp_enqueue_script('adresy-modal', ADRESY_URL . 'assets/js/adresy-modal.js', ['jquery'], ADRESY_VERSION, true);
+            wp_localize_script('adresy-modal', 'adresy_ajax', ['ajax_url' => admin_url('admin-ajax.php'), 'nonce' => wp_create_nonce('adresy_nonce')]);
+        }
+        if ( $has_mobile_shortcode ) {
+            wp_enqueue_script('adresy-modal_mobile', ADRESY_URL . 'assets/js/adresy-modal-mobile.js', ['jquery'], ADRESY_VERSION, true);
+            wp_localize_script('adresy-modal_mobile', 'adresy_ajax_mob', ['ajax_url' => admin_url('admin-ajax.php'), 'nonce' => wp_create_nonce('adresy_nonce')]);
+        }
 
     }
 

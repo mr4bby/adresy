@@ -125,7 +125,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                         $(selectstate).val('').trigger('change');
                                     }
                                     line2.textContent = '';
-                                    line2.innerHTML = data.data;
+                                    if (data.data && data.data.label) {
+                                        line2.textContent = data.data.label + ' ' + (data.data.icon || '');
+                                    }
 
                                 }
                                 mobile_modal.classList.remove('active');
@@ -135,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
                                 mobile_country_modal.style.display = 'none';
 
                             } else {
-                                alert('error: ' + data.message);
+                                alert('error: ' + (data.data && data.data.message ? data.data.message : data.data));
                             }
                         });
 
@@ -175,7 +177,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                 jQuery(selectCountry).val('').trigger('change');
                             }
                             line2.textContent = '';
-                            line2.innerHTML = data.data;
+                            if (data.data && data.data.label) {
+                                line2.textContent = data.data.label + ' ' + (data.data.icon || '');
+                            }
 
                         }
                         mobile_modal.classList.remove('active');
@@ -189,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         const errorText = document.createElement('div');
                         errorText.className = 'adresy-error-message';
                         errorText.style.color = 'red';
-                        errorText.textContent = data.data;
+                        errorText.textContent = (data.data && data.data.message) ? data.data.message : data.data;
                         const oldError = targetDiv.querySelector('.adresy-error-message');
                         if (oldError) oldError.remove();
                         targetDiv.appendChild(errorText);
@@ -251,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     })
                         .then(res => res.json())
                         .then(data => {
-                                                console.log(data)
+                            console.log(data)
 
                             if (data.success) {
                                 if (line2) {
@@ -261,7 +265,12 @@ document.addEventListener('DOMContentLoaded', function () {
                                     if (line1_p) {
                                         line1_p.textContent = '';
                                     }
-                                    line2.innerHTML = data.data;
+                                    if (data.data) {
+                                        var country = data.data.country || '';
+                                        var state = data.data.state || '';
+                                        var icon = data.data.icon || '';
+                                        line2.textContent = (country + (country && state ? ', ' : '') + state + ' ' + icon).trim();
+                                    }
 
                                 }
                                 mobile_modal.classList.remove('active');
